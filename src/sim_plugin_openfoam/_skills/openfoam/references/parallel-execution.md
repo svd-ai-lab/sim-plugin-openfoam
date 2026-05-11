@@ -198,7 +198,7 @@ grep "Number of cells" log.decomposePar
 
 ## sim-cli integration
 
-For one-shot mode (`sim run`), wrap the parallel sequence in a script:
+For one-shot mode (`uv run sim run`), wrap the parallel sequence in a script:
 
 ```python
 # solve.py
@@ -212,6 +212,6 @@ subprocess.run(
 subprocess.run(["reconstructPar", "-newTimes"], check=True)
 ```
 
-Then `sim run solve.py --solver openfoam` runs everything serially as
+Then `uv run sim run solve.py --solver openfoam` runs everything serially as
 one trial. The mpirun child process spawns 4 ranks; sim-cli sees one
 RunResult.
