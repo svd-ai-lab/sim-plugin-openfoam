@@ -21,8 +21,8 @@ classifiers = [
     "License :: OSI Approved :: Apache Software License",
 ]
 dependencies = [
+    "httpx>=0.27",
     "sim-cli-core>=0.3",
-    # TODO(reviewer): pin the openfoam SDK here, e.g. "openfoam>=X.Y"
 ]
 
 [project.optional-dependencies]
@@ -42,8 +42,15 @@ openfoam = "sim_plugin_openfoam:plugin_info"
 
 [project.urls]
 Homepage = "https://github.com/svd-ai-lab/sim-plugin-openfoam"
+Repository = "https://github.com/svd-ai-lab/sim-plugin-openfoam"
 Issues = "https://github.com/svd-ai-lab/sim-plugin-openfoam/issues"
 
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/sim_plugin_openfoam"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+  "integration: tests that build wheels or require a remote OpenFOAM sim-server",
+]
