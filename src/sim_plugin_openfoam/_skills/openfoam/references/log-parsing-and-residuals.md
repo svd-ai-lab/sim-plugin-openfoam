@@ -246,16 +246,16 @@ Investigate mesh, BCs, or pressure-velocity coupling.
 - **Courant Number max climbing** above 1 in transient → reduce deltaT or
   enable adjustTimeStep
 
-## Future: `sim inspect` integration
+## Future: `uv run sim inspect` integration
 
 In a future sim-cli release, this parsing will be exposed as a built-in
 inspect target:
 
 ```bash
-sim inspect residuals.latest --case ./cavity_run
+uv run sim inspect residuals.latest --case ./cavity_run
 # returns the parsed dict directly, no manual regex
 ```
 
 For now, agents implement the regex inline (the `parse_log` function
-above). When `sim inspect` lands, this skill will update with the new
+above). When `uv run sim inspect` lands, this skill will update with the new
 syntax and the inline pattern will be deprecated.

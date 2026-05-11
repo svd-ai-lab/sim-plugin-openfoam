@@ -7,24 +7,32 @@ OpenFOAM driver for sim.
 
 ## Install
 
-```bash
-sim plugin install openfoam
+For agent projects, install sim-cli-core and the OpenFOAM plugin in the project
+environment:
+
+```powershell
+uv init  # only if this is not already a uv project
+uv add sim-cli-core "git+https://github.com/svd-ai-lab/sim-plugin-openfoam@main"
+uv run sim plugin sync-skills --target .agents/skills --copy
+uv run sim check openfoam
+uv run sim plugin doctor openfoam --deep
 ```
 
-Other paths:
+For Claude Code, sync the bundled skill to `.claude/skills` instead:
 
-```bash
-pip install git+https://github.com/svd-ai-lab/sim-plugin-openfoam@v0.1.0
-pip install https://github.com/svd-ai-lab/sim-plugin-openfoam/releases/download/v0.1.0/sim_plugin_openfoam-0.1.0-py3-none-any.whl
-pip install -e .
+```powershell
+uv run sim plugin sync-skills --target .claude/skills --copy
 ```
 
-After install:
+For a reproducible agent run, pin a commit SHA:
 
-```bash
-sim plugin doctor openfoam
-sim plugin sync-skills
+```powershell
+uv add sim-cli-core "git+https://github.com/svd-ai-lab/sim-plugin-openfoam@<commit-sha>"
 ```
+
+`uv run sim ...` runs sim from this project environment, so it sees this
+project's plugins. Without uv, create and activate a venv, then install
+`sim-cli-core` plus this plugin with `python -m pip`.
 
 ## Development
 

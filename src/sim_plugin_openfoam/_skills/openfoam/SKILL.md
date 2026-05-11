@@ -42,16 +42,16 @@ Most benchmark/single-shot use is one-shot:
 #    parses the result, and writes the answer to disk.
 
 # 2. Run via sim-cli:
-sim run solve.py --solver openfoam
+uv run sim run solve.py --solver openfoam
 
 # sim wraps the script in a RunResult (exit_code, stdout, stderr, duration,
 # errors) and stores it under `.sim/runs/`. Browse with:
-sim logs                     # list runs
-sim logs last                # full last RunResult
-sim logs last --field exit_code
+uv run sim logs                     # list runs
+uv run sim logs last                # full last RunResult
+uv run sim logs last --field exit_code
 ```
 
-Persistent-session mode (`sim serve` + `sim connect/exec/inspect/disconnect`)
+Persistent-session mode (`uv run sim serve` + `uv run sim connect/exec/inspect/disconnect`)
 is supported when sim-server is reachable, but is **not** required for
 typical case authoring.
 
