@@ -1,6 +1,6 @@
 ---
 name: openfoam-sim
-description: Use when authoring or running OpenFOAM cases through sim-cli. Covers case structure, solver selection, boundary conditions, turbulence/multiphase/heat-transfer setup, mesh generation, numerics, parallel execution, log diagnosis, post-processing, and recovery from common failures. Designed for both ESI v2406+ and OpenFOAM Foundation v11+ unless noted.
+description: Use when the user asks Codex, Claude Code, or another AI coding agent to run, inspect, or debug OpenFOAM cases through sim-cli. Supports case checks, solver execution, log inspection, result artifacts, replayable CFD workflows, and benchmark tasks.
 ---
 
 # openfoam-sim
